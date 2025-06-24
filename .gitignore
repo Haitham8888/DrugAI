@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Model files (optional - you can include them if you want)
+# *.pkl
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
