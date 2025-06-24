@@ -41,15 +41,15 @@ class CameraInterface:
             cv2.putText(frame, "Eyes: Not Detected", (10, status_y), 
                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
         
-        # Draw drug detection results
+        # Draw testing notice
         status_y += 40
-        if results['drug_signs_detected']:
-            cv2.putText(frame, "WARNING: Drug Signs Detected!", (10, status_y), 
-                       cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
-            cv2.rectangle(frame, (5, 5), (width-5, height-5), (0, 0, 255), 3)
-        else:
-            cv2.putText(frame, "No Drug Signs Detected", (10, status_y), 
-                       cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+        cv2.putText(frame, "UNDER TESTING - تحت التجربة", (10, status_y), 
+                   cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 165, 0), 2)
+        
+        # Draw system status (always positive)
+        status_y += 30
+        cv2.putText(frame, "System Running Normally", (10, status_y), 
+                   cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
         
         # Draw confidence score
         status_y += 25
@@ -84,7 +84,8 @@ class CameraInterface:
         if self.cap is None:
             self.start_camera()
         
-        print("Drug Addiction Detection Started")
+        print("Health Monitoring System Started - Testing Mode")
+        print("نظام مراقبة الصحة بدأ - وضع التجربة")
         print("Press 'q' to quit, 'r' to toggle recording")
         
         frame_count = 0
@@ -105,13 +106,17 @@ class CameraInterface:
             # Draw results on frame
             frame_with_results = self.draw_results(frame, results)
             
-            # Add instructions
+            # Add instructions and testing notice
             cv2.putText(frame_with_results, "Press 'q' to quit", 
-                       (10, frame_with_results.shape[0] - 20), 
+                       (10, frame_with_results.shape[0] - 40), 
                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
             
+            cv2.putText(frame_with_results, "Experimental System - نظام تجريبي", 
+                       (10, frame_with_results.shape[0] - 20), 
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 165, 0), 1)
+            
             # Display frame
-            cv2.imshow('Drug Addiction Detection', frame_with_results)
+            cv2.imshow('Health Monitor - Testing Mode | نظام مراقبة الصحة - وضع التجربة', frame_with_results)
             
             # Calculate and display FPS
             frame_count += 1

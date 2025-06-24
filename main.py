@@ -4,10 +4,12 @@ import sys
 def main():
     """Main application entry point"""
     print("=" * 50)
-    print("Drug Addiction Detection System")
+    print("Health Monitoring System - TESTING MODE")
+    print("نظام مراقبة الصحة - وضع التجربة")
     print("=" * 50)
-    print("This is a demonstration system for educational purposes only.")
-    print("It uses computer vision and machine learning to detect potential signs.")
+    print("This is an experimental system for educational purposes only.")
+    print("It uses computer vision and machine learning for health monitoring.")
+    print("Currently under testing and development.")
     print()
     
     try:
